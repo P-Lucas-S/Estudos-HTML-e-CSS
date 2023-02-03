@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Query</title>
     <link rel="stylesheet" href="estilos/style.css">
+    <!--Link para os icones do google icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/media-query.css">
 </head>
-<body>
+<body onresize="mudouTamanho()">
     <header>
         <h1>Meu Site</h1>
+        <!--icone de hamburguer, é determinado pelo nome dentro do span-->
+        <!--onclick chama uma função em JavaScript-->
         <span id="burger" class="material-icons" onclick="clickMenu()">menu</span>
         <menu id="itens">
             <ul>
@@ -34,10 +38,22 @@
         </article>
     </main>
     <script>
+
+        function mudouTamanho(){
+            if (window.innerWidth >= 768){
+                itens.style.display = 'block'
+            } else {
+                itens.style.display = 'none'
+            }
+        }
+
         function clickMenu(){
+            //condicional que verifica se o display é igual a block
             if (itens.style.display == 'block'){
+                //display recebe 'none'
                 itens.style.display = 'none'
             } else{ 
+                //display recebe 'block'
                 itens.style.display = 'block'
             }
         }
